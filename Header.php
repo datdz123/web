@@ -20,7 +20,8 @@
         integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ"
         crossorigin="anonymous"
 />
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="CSS/style.css">
+
 <header>
 
     <a href="#" class="logo">Phạm Quang Đạt</a>
@@ -35,7 +36,13 @@
     <img src="images/stars.png" id="stars" alt="">
     <img src="images/moon.png" alt="" id="moon">
     <h2 id="text">Moon Light</h2>
-    <a href="#content" id="btn">Todo</a>
+<!--    <a href="#content" id="btn">Todo</a>-->
     <img src="images/mountains_behind.png" alt="" id="mountains_behind">
     <img src="images/mountains_front.png" alt="" id="mountains_front">
+
 </section>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="javascript.js"></script>

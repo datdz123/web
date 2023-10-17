@@ -19,36 +19,5 @@ window.addEventListener('scroll', function() {
 
 })
 
-// todo
-let addButton = document.getElementsByClassName('btnAddTask')[0]
-let textInput = document.getElementById('textInput')
-let taskTodo = document.getElementById('taskTodo')
-let editToDoList = document.getElementById('toDoList')
-let reset = document.getElementById('reset')
-let addTaskIcon = document.getElementById('addTaskIcon')
-let toastMess = document.getElementsByClassName('toastMessage')[0]
-let tasks = localStorage.getItem('tasks') ? JSON.parse(localStorage.getItem('tasks')) : []
-
-renderTasks(tasks)
-addButton.classList.add('disabled')
-addTaskIcon.setAttribute('class', 'fas fa-plus-circle')
-
-textInput.addEventListener('keyup', function () {
-    if (textInput.value === '') {
-        addButton.classList.add('disabled')
-    } else if (textInput.value) {
-        addButton.classList.remove('disabled')
-    }
-})
-
-window.addEventListener('keydown', (e) => {
-    if (e.which === 13) {
-        add()
-    }
-})
-
-addButton.addEventListener('click', add)
-
-
 
 

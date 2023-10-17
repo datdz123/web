@@ -24,12 +24,11 @@
 
 <header>
 
-    <a href="#" class="logo">Phạm Quang Đạt</a>
+    <a  class="logo " style="color:white">Phạm Quang Đạt</a>
     <ul>
-        <li><a href="" class="active">Home</a></li>
-        <li><a href="">About</a></li>
-        <li><a href="">Work</a></li>
-        <li><a href="">Contact</a></li>
+        <li><a href="Trangchu.php" class="">Quản lý Sinh viên</a></li>
+        <li><a href="Danhsachlogin.php">Quản lý người dùng</a></li>
+        <li><a href="timkiem.php">Tìm kiếm sinh viên</a></li>
     </ul>
 </header>
 <section>

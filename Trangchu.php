@@ -175,6 +175,6 @@ include('Header.php');
 <script>
     // Sử dụng jQuery để làm mềm cuộn (scroll) của trang web từ trên xuống đối với id: submitBtn
     $('html, body').animate({
-        scrollTop: $('.text-custom').offset().top
-    }, 6000); // Thời gian làm mềm cuộn (milliseconds)
+        scrollTop: $('#lop').offset().top
+    }, 5000) // Thời gian làm mềm cuộn (milliseconds)
 </script>

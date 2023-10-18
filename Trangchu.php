@@ -156,4 +156,15 @@ include('Header.php');
         });
     }
 </script>
+<script>
+    // Kiểm tra nếu có thông báo xoá
+    var deleteMessage = "<?php echo isset($_GET['delete_message']) ? $_GET['delete_message'] : ''; ?>";
+    if (deleteMessage) {
+        Swal.fire({
+            icon: 'info',
+            title: deleteMessage,
+        });
+    }
+</script>
+
 

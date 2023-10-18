@@ -1,4 +1,6 @@
 // top
+
+
 let moon = document.getElementById('moon')
 let stars = document.getElementById('stars')
 let mountains_behind = document.getElementById('mountains_behind')
@@ -19,5 +21,7 @@ window.addEventListener('scroll', function() {
 
 })
 
+
+// Sử dụng jQuery để làm mềm cuộn (scroll) của trang web từ trên xuống đối với id: submitBtn
 
 

@@ -109,7 +109,7 @@ include('Header.php');
             </div>
         </div>
 
-        <h1 class="text-center text-custom" style="padding-bottom: 5%; padding-top: 5%; "> Quản lý Sinh viên</h1>
+        <h1 class="text-center text-custom title" style="padding-bottom: 5%; padding-top: 5%; "> Quản lý Sinh viên</h1>
         <form action="" method="post">
             <div class="form-group">
                 <label for="masv">Mã sinh viên:</label>
@@ -175,6 +175,6 @@ include('Header.php');
 <script>
     // Sử dụng jQuery để làm mềm cuộn (scroll) của trang web từ trên xuống đối với id: submitBtn
     $('html, body').animate({
-        scrollTop: $('#lop').offset().top
+        scrollTop: $('.title').offset().top
     }, 5000) // Thời gian làm mềm cuộn (milliseconds)
 </script>

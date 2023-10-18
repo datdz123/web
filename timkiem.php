@@ -35,7 +35,7 @@ include('Header.php');
 <body>
 <div class="content" id="content">
 <div class="container mt-5">
-    <h2 class="text-center">Tìm kiếm sinh viên</h2>
+    <h2 class="text-center title">Tìm kiếm sinh viên</h2>
 
     <!-- Form tìm kiếm -->
     <form class="mb-3" method="get">
@@ -73,3 +73,12 @@ include('Header.php');
 </div>
 </body>
 </html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    // Sử dụng jQuery để làm mềm cuộn (scroll) của trang web từ trên xuống đối với id: submitBtn
+    $('html, body').animate({
+        scrollTop: $('.title').offset().top
+    }, 5000) // Thời gian làm mềm cuộn (milliseconds)
+</script>
+
+

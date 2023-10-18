@@ -148,6 +148,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         });
     }
 </script>
+
+
 <script>
     document.getElementById('register-link').addEventListener('click', function(e) {
         e.preventDefault();

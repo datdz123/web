@@ -52,7 +52,7 @@ if (isset($_GET['masv'])) {
             <textarea class="form-control" name="que_quan" id="que_quan" rows="4" readonly><?php echo $data['que_quan']; ?></textarea>
         </div>
         <button type="submit" class="btn btn-danger">Xóa</button>
-        <a href="Danhsachsv.php" class="btn btn-warning">Quay lại</a>
+        <a href="Trangchu.php" class="btn btn-warning">Quay lại</a>
     </form>
 </div>
 </body>

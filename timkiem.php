@@ -35,7 +35,7 @@ include('Header.php');
 <body>
 <div class="content" id="content">
 <div class="container mt-5">
-    <h2 class="text-center title">Tìm kiếm sinh viên</h2>
+    <h1 class="text-center title mb-5">Tìm kiếm sinh viên</h1>
 
     <!-- Form tìm kiếm -->
     <form class="mb-3" method="get">
@@ -47,13 +47,13 @@ include('Header.php');
         </div>
     </form>
 
-    <table class="table table-bordered">
+    <table class="table table-bordered custom-table">
         <thead>
         <tr>
             <th>Mã sinh viên</th>
             <th>Họ tên</th>
             <th>Lớp</th>
-            <th>Quê quan</th>
+            <th>Quê quán</th>
         </tr>
         </thead>
         <tbody>
@@ -79,6 +79,20 @@ include('Header.php');
     $('html, body').animate({
         scrollTop: $('.title').offset().top
     }, 5000) // Thời gian làm mềm cuộn (milliseconds)
+    window.onscroll = function() {
+        var button = document.getElementById('back-to-top-button');
+        if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+            button.style.display = 'block';
+        } else {
+            button.style.display = 'none';
+        }
+    };
+
+    // Xử lý sự kiện khi nút "Quay lại đầu trang" được nhấn
+    document.getElementById('back-to-top-button').addEventListener('click', function() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    });
 </script>
 
 

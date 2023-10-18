@@ -37,14 +37,13 @@ if (isset($_GET['masv'])) {
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Chỉnh sửa sinh viên</title>
-    <!-- Thêm Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
+<?php
+include('header.php');
+?>
 <body>
+<div class="content" id="content">
 <div class="container mt-5">
-    <h2 class="text-center">Chỉnh sửa sinh viên</h2>
+    <h1 class="text-center title">Chỉnh sửa sinh viên</h1>
     <form action="" method="post">
         <div class="form-group">
             <label for="ho_ten">Họ tên:</label>
@@ -55,12 +54,38 @@ if (isset($_GET['masv'])) {
             <input type="text" class="form-control" name="lop" id="lop" value="<?php echo $data['lop']; ?>">
         </div>
         <div class="form-group">
-            <label for="que_quan">Quê quan:</label>
+            <label for="que_quan">Quê quán:</label>
             <textarea class="form-control" name="que_quan" id="que_quan" rows="4"><?php echo $data['que_quan']; ?></textarea>
         </div>
-        <button type="submit" class="btn btn-primary">Sửa</button>
-        <a href="Danhsachsv.php" class="btn btn-warning">Quay lại</a>
+        <button type="submit " class="btn btn-primary d-flex mx-auto text-center justify-content-center" style="width: 10%;">
+          Sửa
+        </button>
     </form>
+</div>
 </div>
 </body>
 </html>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script>
+    // Sử dụng jQuery để làm mềm cuộn (scroll) của trang web từ trên xuống đối với id: submitBtn
+    $('html, body').animate({
+        scrollTop: $('.title').offset().top
+    }, 5000) // Thời gian làm mềm cuộn (milliseconds)
+    window.onscroll = function() {
+        var button = document.getElementById('back-to-top-button');
+        if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+            button.style.display = 'block';
+        } else {
+            button.style.display = 'none';
+        }
+    };
+
+    // Xử lý sự kiện khi nút "Quay lại đầu trang" được nhấn
+    document.getElementById('back-to-top-button').addEventListener('click', function() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    });
+
+</script>
+

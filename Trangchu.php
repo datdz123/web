@@ -63,6 +63,8 @@ if (!$query) {
 
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 <?php
 include('Header.php');
 ?>
@@ -109,6 +111,8 @@ include('Header.php');
             </div>
         </div>
 
+
+
         <h1 class="text-center text-custom title" style="padding-bottom: 5%; padding-top: 5%; "> Quản lý Sinh viên</h1>
         <form action="" method="post">
             <div class="form-group">
@@ -130,13 +134,13 @@ include('Header.php');
             <button id="submitBtn" type="submit" class="btn btn-primary d-flex mx-auto mb-5">Thêm sinh viên</button>
         </form>
 
-        <table class="table table-bordered pt-5 text-center ">
+        <table class="table table-bordered pt-5 custom-table ">
             <thead class="thead-light">
             <tr>
                 <th>Mã sinh viên</th>
                 <th>Họ tên</th>
                 <th>Lớp</th>
-                <th>Quê quan</th>
+                <th>Quê quán</th>
                 <th>Sửa</th>
                 <th>Xóa</th>
             </tr>
@@ -157,8 +161,11 @@ include('Header.php');
                     <td><?php echo $data["ho_ten"]; ?></td>
                     <td><?php echo $data["lop"]; ?></td>
                     <td><?php echo $data["que_quan"]; ?></td>
-                    <td><a href="sua_sinh_vien.php?masv=<?php echo $data['masv']; ?>" class="btn btn-warning">Sửa</a></td>
-                    <td><a href="xoa_sinh_vien.php?masv=<?php echo $data['masv']; ?>" class="btn btn-danger">Xóa</a></td>
+                    <td><a href="sua_sinh_vien.php?masv=<?php echo $data['masv']; ?>">
+                            <i class="fas fa-edit"></i>
+                        </a></td>
+
+                    <td> <a href="xoa_sinh_vien.php?masv=<?php echo $data['masv']; ?>"  > <i class="fas fa-trash"> </i></a></td>
                 </tr>
                 <?php
                 $i++;
@@ -177,4 +184,20 @@ include('Header.php');
     $('html, body').animate({
         scrollTop: $('.title').offset().top
     }, 5000) // Thời gian làm mềm cuộn (milliseconds)
+    window.onscroll = function() {
+        var button = document.getElementById('back-to-top-button');
+        if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+            button.style.display = 'block';
+        } else {
+            button.style.display = 'none';
+        }
+    };
+
+    // Xử lý sự kiện khi nút "Quay lại đầu trang" được nhấn
+    document.getElementById('back-to-top-button').addEventListener('click', function() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    });
+
 </script>
+

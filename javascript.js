@@ -16,10 +16,11 @@ window.addEventListener('scroll', function() {
     mountains_behind.style.top = value * 0.3 + 'px'
     text.style.marginRight = value * 1.5 + 'px'
     text.style.marginTop = value * 0.3 + 'px'
-    btn.style.marginTop = value + 'px'
+    // btn.style.marginTop = value + 'px'
     header.style.top = value * 0.9 + 'px'
 
 })
+// Hiển thị hoặc ẩn nút "Quay lại đầu trang" khi cuộn trang
 
 
 // Sử dụng jQuery để làm mềm cuộn (scroll) của trang web từ trên xuống đối với id: submitBtn

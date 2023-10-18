@@ -50,7 +50,7 @@ include('Header.php');
         }
         ?>
 
-        <table class="table table-bordered mt-4">
+        <table class="table table-bordered mt-4 custom-table">
             <thead class="thead-light">
             <tr>
                 <th>ID</th>
@@ -75,8 +75,12 @@ include('Header.php');
                     <td><?php echo $data["id"]; ?></td>
                     <td><?php echo $data["username"]; ?></td>
                     <td><?php echo $data["password"]; ?></td>
-                    <td><a href="sua-login.php?id=<?php echo $data['id']; ?>" class="btn btn-warning">Sửa</a></td>
-                    <td><a href="xoa-login.php?id=<?php echo $data['id']; ?>" class="btn btn-danger">Xóa</a></td>
+
+                    <td><a href="sua-login.php?masv=<?php echo $data['id']; ?>">
+                            <i class="fas fa-edit"></i>
+                        </a></td>
+
+                    <td> <a href="xoa-login.php?masv=<?php echo $data['id']; ?>"  > <i class="fas fa-trash"> </i></a></td>
                 </tr>
                 <?php
             }
@@ -92,5 +96,19 @@ include('Header.php');
     $('html, body').animate({
         scrollTop: $('.title').offset().top
     }, 5000) // Thời gian làm mềm cuộn (milliseconds)
+    window.onscroll = function() {
+        var button = document.getElementById('back-to-top-button');
+        if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+            button.style.display = 'block';
+        } else {
+            button.style.display = 'none';
+        }
+    };
+
+    // Xử lý sự kiện khi nút "Quay lại đầu trang" được nhấn
+    document.getElementById('back-to-top-button').addEventListener('click', function() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    });
 </script>
 

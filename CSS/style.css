@@ -154,3 +154,29 @@ section::before {
 h1{
     color: white !important;
 }
+#back-to-top-button {
+    display: none;
+    position: fixed;
+    top:80%;
+    right: 0px;
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    z-index: 20;
+}
+
+#back-to-top-button a {
+    text-decoration: none;
+    color: #fff;
+}
+.fas.fa-trash{
+    color: red;
+}
+.fas.fa-edit{
+    color: gold;
+}
+.custom-table {
+    text-align: center;
+}

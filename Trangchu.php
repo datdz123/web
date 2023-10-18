@@ -28,16 +28,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $check_result = mysqli_query($connect, $check_query);
 
     if (mysqli_num_rows($check_result) > 0) {
-        // Nếu mã sinh viên đã tồn tại, hiển thị modal lỗi
-        $showErrorModal = true;
+        $trangchu_message = "Mã sinh viên đã tồn tại. Không thể thêm.";
     } else {
         // Nếu mã sinh viên không tồn tại, thực hiện thêm bản ghi mới
         $sql = "INSERT INTO tblsinhvien (masv, ho_ten, lop, que_quan) VALUES ('$masv', '$ho_ten', '$lop', '$que_quan')";
         if (mysqli_query($connect, $sql)) {
-            // Nếu thêm thành công, bạn có thể hiển thị modal thông báo thành công ở phần JavaScript
+            $trangchu_message = "Thêm sinh viên thành công";
         } else {
-            // Nếu có lỗi khi thêm, bạn có thể xử lý lỗi ở đây
-            echo "Lỗi: " . $sql . "<br>" . mysqli_error($connect);
+            $trangchu_message = "Thêm thất bại: " . mysqli_error($connect);
         }
     }
 }
@@ -50,16 +48,7 @@ if (!$query) {
 
 <!-- Your HTML here -->
 
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        if(<?php echo $showSuccessModal ? 'true' : 'false'; ?>) {
-            $('#successModal').modal('show');
-        }
-        if(<?php echo $showErrorModal ? 'true' : 'false'; ?>) {
-            $('#errorModal').modal('show');
-        }
-    });
-</script>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -70,49 +59,6 @@ include('Header.php');
 ?>
 <div id="content" class="content">
     <div class="container mt-5 content">
-        <!-- Modal Popup -->
-        <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="successModalLabel">Thông báo</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Dữ liệu đã được thêm thành công.
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Đóng</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal Popup for Error -->
-        <div class="modal fade" id="errorModal" tabindex="-1" role="dialog" aria-labelledby="errorModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="errorModalLabel">Thông báo lỗi</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Mã sinh viên đã tồn tại.
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
         <h1 class="text-center text-custom title" style="padding-bottom: 5%; padding-top: 5%; "> Quản lý Sinh viên</h1>
         <form action="" method="post">
             <div class="form-group">
@@ -165,7 +111,7 @@ include('Header.php');
                             <i class="fas fa-edit"></i>
                         </a></td>
 
-                    <td> <a href="xoa_sinh_vien.php?masv=<?php echo $data['masv']; ?>"  > <i class="fas fa-trash"> </i></a></td>
+                    <td> <a class="delete-link" href="xoa_sinh_vien.php?masv=<?php echo $data['masv']; ?>"  > <i class="fas fa-trash"> </i></a></td>
                 </tr>
                 <?php
                 $i++;
@@ -178,7 +124,7 @@ include('Header.php');
 
 </html>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
     // Sử dụng jQuery để làm mềm cuộn (scroll) của trang web từ trên xuống đối với id: submitBtn
     $('html, body').animate({
@@ -199,5 +145,15 @@ include('Header.php');
         document.documentElement.scrollTop = 0;
     });
 
+</script>
+<script>
+    // Kiểm tra nếu có thông báo trang chủ
+    var trangchuMessage = "<?php echo $trangchu_message; ?>";
+    if (trangchuMessage) {
+        Swal.fire({
+            icon: 'info',
+            title: trangchuMessage,
+        });
+    }
 </script>
 

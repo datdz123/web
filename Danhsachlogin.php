@@ -43,9 +43,9 @@ include('Header.php');
             //Code xử lý, insert dữ liệu vào table tbluser
             $sql = "INSERT INTO tbluser (username, password) VALUES ('$newUsername', '$newPassword')";
             if (mysqli_query($connect, $sql)) {
-                echo "Thêm tài khoản thành công";
+                $trangchu_message = "Thêm thành công";
             } else {
-                echo "Error: " . $sql . "<br>" . mysqli_error($connect);
+                $trangchu_message = "Thêm thất bại: " . mysqli_error($connect);
             }
         }
         ?>
@@ -76,11 +76,11 @@ include('Header.php');
                     <td><?php echo $data["username"]; ?></td>
                     <td><?php echo $data["password"]; ?></td>
 
-                    <td><a href="sua-login.php?masv=<?php echo $data['id']; ?>">
+                    <td><a href="sua-login.php?id=<?php echo $data['id']; ?>">
                             <i class="fas fa-edit"></i>
                         </a></td>
 
-                    <td> <a href="xoa-login.php?masv=<?php echo $data['id']; ?>"  > <i class="fas fa-trash"> </i></a></td>
+                    <td> <a href="xoa-login.php?id=<?php echo $data['id']; ?>"  > <i class="fas fa-trash"> </i></a></td>
                 </tr>
                 <?php
             }
@@ -91,6 +91,7 @@ include('Header.php');
 </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script>
     // Sử dụng jQuery để làm mềm cuộn (scroll) của trang web từ trên xuống đối với id: submitBtn
     $('html, body').animate({
@@ -111,4 +112,15 @@ include('Header.php');
         document.documentElement.scrollTop = 0;
     });
 </script>
+<script>
+    // Kiểm tra nếu có thông báo trang chủ
+    var trangchuMessage = "<?php echo $trangchu_message; ?>";
+    if (trangchuMessage) {
+        Swal.fire({
+            icon: 'info',
+            title: trangchuMessage,
+        });
+    }
+</script>
+
 

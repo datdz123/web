@@ -26,9 +26,9 @@ if (isset($_GET['masv'])) {
         // Cập nhật thông tin sinh viên trong cơ sở dữ liệu
         $update_query = "UPDATE tblsinhvien SET ho_ten = '$ho_ten', lop = '$lop', que_quan = '$que_quan' WHERE masv = '$masv'";
         if (mysqli_query($connect, $update_query)) {
-            echo ("Sua thông tin thành công");
+            $trangchu_message = "Sửa thành công";
         } else {
-            echo "Error: " . $update_query . "<br>" . mysqli_error($connect);
+            $trangchu_message = "Sửa thất bại";
         }
     }
 
@@ -57,15 +57,18 @@ include('header.php');
             <label for="que_quan">Quê quán:</label>
             <textarea class="form-control" name="que_quan" id="que_quan" rows="4"><?php echo $data['que_quan']; ?></textarea>
         </div>
-        <button type="submit " class="btn btn-primary d-flex mx-auto text-center justify-content-center" style="width: 10%;">
+        <button type="submit " class="btn btn-primary  text-center " style="width: 10%;">
           Sửa
         </button>
+        <a href="Trangchu.php" class="btn btn-warning">Quay lại</a>
     </form>
 </div>
 </div>
 </body>
 </html>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 <script>
     // Sử dụng jQuery để làm mềm cuộn (scroll) của trang web từ trên xuống đối với id: submitBtn
@@ -88,4 +91,23 @@ include('header.php');
     });
 
 </script>
-
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script>
+    // Kiểm tra nếu có thông báo trang chủ
+    var trangchuMessage = "<?php echo $trangchu_message; ?>";
+    if (trangchuMessage) {
+        Swal.fire({
+            icon: 'info',
+            title: trangchuMessage,
+         })
+            // .then((result) => {
+        //     if (result.isConfirmed) {
+        //         // Kiểm tra xem loginMessage là "Login thành công" trước khi chuyển hướng
+        //         if (trangchuMessage === "Sửa thành công") {
+        //             window.location.href = 'Trangchu.php';
+        //         }
+        //     }
+        // });
+    }
+</script>

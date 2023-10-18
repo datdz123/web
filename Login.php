@@ -89,8 +89,37 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="submit">Đăng Nhập</button>
         </form>
         <div class="create-account">
-            <a href="#">Đăng Ký</a>
+            <a href="" id="register-link">Đăng Ký</a>
         </div>
+    </div>
+</section>
+<section style="display: none;>
+    <div class="register-container id=register-form " style="display: none;">
+        <h2>Đăng Ký</h2>
+        <form method="post" action="">
+            <div class="input-box">
+                <span class="icon">
+                    <i class="fa-solid fa-user"></i>
+                </span>
+                <input type="text" name="new_username" id="new_username">
+                <label for="new_username">Tên tài khoản mới</label>
+            </div>
+            <div class="input-box">
+                <span class="icon">
+                    <i class="fa-solid fa-envelope"></i>
+                </span>
+                <input type="text" name="email" id="email">
+                <label for="email">Địa chỉ Email</label>
+            </div>
+            <div class="input-box">
+                <span class="icon">
+                    <i class="fa-solid fa-lock"></i>
+                </span>
+                <input type="password" name="new_password" id="new_password">
+                <label for="new_password">Mật khẩu mới</label>
+            </div>
+            <button type="submit">Đăng Ký</button>
+        </form>
     </div>
 </section>
 
@@ -118,4 +147,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
         });
     }
+</script>
+<script>
+    document.getElementById('register-link').addEventListener('click', function(e) {
+        e.preventDefault();
+        document.getElementById('register-form').style.display = 'block';
+        document.querySelector('.login-container').style.display = 'none';
+    });
 </script>

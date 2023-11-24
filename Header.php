@@ -33,19 +33,7 @@
         <li><a href="timkiem.php">Tìm kiếm sinh viên</a></li>
     </ul>
 </header>
-<section>
-    <img src="images/stars.png" id="stars" alt="">
-    <img src="images/moon.png" alt="" id="moon">
-    <h2 id="text">Moon Light</h2>
-<!--    <a href="#content" id="btn">Todo</a>-->
-    <img src="images/mountains_behind.png" alt="" id="mountains_behind">
-    <img src="images/mountains_front.png" alt="" id="mountains_front">
-    <div id="back-to-top-button" class="hidden">
 
-        <i class="fas fa-arrow-up"></i>
-    </div>
-
-</section>
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>

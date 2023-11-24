@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<title>Todo List</title>
+<title>Phạm Quang Đạt</title>
 <!-- Required meta tags -->
 <meta charset="utf-8" />
 <!-- <meta
@@ -89,39 +89,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="submit">Đăng Nhập</button>
         </form>
         <div class="create-account">
-            <a href="" id="register-link">Đăng Ký</a>
+            <a href="Dangky.php" id="">Đăng Ký</a>
         </div>
     </div>
 </section>
-<section style="display: none;>
-    <div class="register-container id=register-form " style="display: none;">
-        <h2>Đăng Ký</h2>
-        <form method="post" action="">
-            <div class="input-box">
-                <span class="icon">
-                    <i class="fa-solid fa-user"></i>
-                </span>
-                <input type="text" name="new_username" id="new_username">
-                <label for="new_username">Tên tài khoản mới</label>
-            </div>
-            <div class="input-box">
-                <span class="icon">
-                    <i class="fa-solid fa-envelope"></i>
-                </span>
-                <input type="text" name="email" id="email">
-                <label for="email">Địa chỉ Email</label>
-            </div>
-            <div class="input-box">
-                <span class="icon">
-                    <i class="fa-solid fa-lock"></i>
-                </span>
-                <input type="password" name="new_password" id="new_password">
-                <label for="new_password">Mật khẩu mới</label>
-            </div>
-            <button type="submit">Đăng Ký</button>
-        </form>
-    </div>
-</section>
+
 
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
